@@ -37,7 +37,7 @@ One big change in design we should do is abstract out the image functions. They 
 
 ### Problems:
 Runtime
-Compared to applications like Gimp and Paint.net, ours runs extremely slow. For example, a black and white filter on an image roughly the size of the chimpanzee image we tested with took roughly half a second on Paint.net, while it took our application 1.6 seconds more or less. There is a lot of optimization to be done, although research suggested that parallel processing is the only real optimization available for image filtering.
+Compared to applications like Gimp and Paint.net, ours runs extremely slow. For example, a black and white filter on an image roughly the size of the chimpanzee image we tested with took roughly half a second on Paint.net, while it took our application 1.6 seconds more or less. There is a lot of optimization to be done, although research suggested that parallel processing is the only real optimization available for image filtering. Parallel processing was attempted and data was collected with the speeds, and it seemed to only break even in runtime with images around 1500x1500 or higher. It appears that Python is simply not a good language for quick, small image processing.
 
 UI
 The main decision to make was whether we wanted our application to run in browser using Quart or to run as its own standalone application using tkinter. Long processing times on a web app are an issue due to high amounts of possible interference, as well as requiring a server that can handle the heavy lifting. A standalone tkinter app had issues of portability and relatively ugly UI. 
